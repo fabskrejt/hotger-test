@@ -4,9 +4,12 @@ import {useEffect} from "react";
 import {setFavoriteCountries} from "../../../bll/reducers/search-reducer";
 
 export const CountryInfo = ({country}) => {
+    console.log('render')
     const dispatch = useDispatch()
     const favoriteCountries = useSelector((state) => state.searchReducer.favoriteCountries)
 
+
+    //Get favorite countries from local storage and set it to state
     useEffect(() => {
         const countriesFromLocalStorage = localStorage.getItem('favoriteCountries')
 
@@ -15,12 +18,18 @@ export const CountryInfo = ({country}) => {
 
     }, [])
 
+    //Set favorite countries to  local storage
+    useEffect(() => {
+        favoriteCountries &&
+        localStorage.setItem("favoriteCountries", JSON.stringify(favoriteCountries))
+    }, [favoriteCountries])
+
+
     const addToFavorite = () => {
-        localStorage.setItem("favoriteCountries", JSON.stringify([...favoriteCountries, country]))
         dispatch(setFavoriteCountries([...favoriteCountries, country]))
     }
 
-    return (
+    return favoriteCountries && (
         <div className={style.countryInfo}>
             {country
                 ? <>

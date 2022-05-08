@@ -6,7 +6,7 @@ const slice = createSlice({
     name: 'search',
     initialState: {
         countries: [],
-        favoriteCountries: []
+        favoriteCountries: null
     },
     reducers: {
         setCountries: (state, action) => {

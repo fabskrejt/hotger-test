@@ -1,19 +1,20 @@
 import style from "./favorites.module.css"
 import {useDispatch, useSelector} from "react-redux";
 import {setFavoriteCountries} from "../../bll/reducers/search-reducer";
+import {useEffect} from "react";
 
 export const Favorites = () => {
 
     const dispatch = useDispatch()
     const favoriteCountries = useSelector((state) => state.searchReducer.favoriteCountries)
 
+
     const removeFromLocalStorage = (country) => {
         const filteredFavoriteCountries = favoriteCountries.filter(i => i !== country)
-        localStorage.setItem("favoriteCountries", JSON.stringify(filteredFavoriteCountries))
         dispatch(setFavoriteCountries(filteredFavoriteCountries))
     }
 
-    return (
+    return favoriteCountries && (
         <div className={style.favorites}>
             {favoriteCountries.map(i =>
                 <div key={i.name.common}>
