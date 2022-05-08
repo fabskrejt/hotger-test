@@ -6,7 +6,8 @@ const slice = createSlice({
     name: 'search',
     initialState: {
         countries: [],
-        favoriteCountries: null
+        favoriteCountries: [],
+        initialized: false
     },
     reducers: {
         setCountries: (state, action) => {
@@ -14,12 +15,15 @@ const slice = createSlice({
         },
         setFavoriteCountries: (state, action) => {
             return void (state.favoriteCountries = [...action.payload])
+        },
+        setInitialized: (state, action)=>{
+            return void (state.initialized = true)
         }
     }
 })
 
 export const searchReducer = slice.reducer
-export const {setCountries, setFavoriteCountries} = slice.actions
+export const {setCountries, setFavoriteCountries,setInitialized} = slice.actions
 
 //thunks
 export const setCountriesTC = (name) => (dispatch) => {
