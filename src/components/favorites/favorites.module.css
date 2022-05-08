@@ -1,0 +1,6 @@
+.favorites{
+    background-color: gray;
+    max-height: 100vh;
+    grid-area: favorites;
+
+}

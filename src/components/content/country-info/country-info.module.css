@@ -1,0 +1,17 @@
+.countryInfo {
+    background-color: wheat;
+}
+
+.country {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.country img {
+    width: 100px;
+}
+.countryInfo span{
+    width: 100px;
+    text-align: center;
+}
