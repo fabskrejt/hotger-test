@@ -1,3 +1,13 @@
 .searchResults{
-
+background-color: cornflowerblue;
+}
+.country{
+    background-color: wheat;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: gray;
+    margin-bottom: 10px;
+    height: 30px;
 }

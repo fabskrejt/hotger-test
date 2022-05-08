@@ -1,15 +1,16 @@
 .countryInfo {
     background-color: wheat;
-}
-
-.country {
+    border-radius: 10px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    background-color: gray;
+    margin-bottom: 10px;
+    height: 30vh;
 }
 
-.country img {
-    width: 100px;
+.countryInfo img {
+
 }
 .countryInfo span{
     width: 100px;
