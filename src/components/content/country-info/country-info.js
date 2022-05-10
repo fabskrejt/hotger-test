@@ -1,15 +1,20 @@
 import style from "./country-info.module.css"
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {setCountries, setFavoriteCountries, setInitialized} from "../../../bll/reducers/search-reducer";
+import {
+    addToFavoriteCountries,
+    setCountries,
+    setFavoriteCountries,
+    setInitialized
+} from "../../../bll/reducers/search-reducer";
+import {withDeleteFromFavorites} from "../../../common/hoc/deleteFromFavorites";
 
-export const CountryInfo = ({country}) => {
+export const CountryInfo = withDeleteFromFavorites(({country,deleteFromFavorites,favoriteCountries}) => {
     console.log('render')
     const dispatch = useDispatch()
-    const favoriteCountries = useSelector((state) => state.searchReducer.favoriteCountries)
     const initialized = useSelector((state) => state.searchReducer.initialized)
     const bordersCountries = useSelector((state) => state.searchReducer.bordersCountries)
-
+    const favoriteCountriesName = favoriteCountries.map(i => i.name.common)
 
     //Get favorite countries from local storage and set it to state
     useEffect(() => {
@@ -20,7 +25,7 @@ export const CountryInfo = ({country}) => {
         dispatch(setInitialized())
     }, [])
 
-    //Set favorite countries to  local storage
+    //Set favorite countries to local storage
     useEffect(() => {
         initialized &&
         localStorage.setItem("favoriteCountries", JSON.stringify(favoriteCountries))
@@ -28,13 +33,15 @@ export const CountryInfo = ({country}) => {
 
 
     const addToFavorite = () => {
-        dispatch(setFavoriteCountries([...favoriteCountries, country]))
+        dispatch(addToFavoriteCountries(country))
     }
 
-    //chose country for info from borders
+    //Chose country for info from borders
     const choseBorderCountry = (e) => {
+        e.target.id &&
         dispatch(setCountries([bordersCountries[e.target.id]]))
     }
+
 
     return initialized && (
         <div className={style.countryInfo}>
@@ -44,16 +51,20 @@ export const CountryInfo = ({country}) => {
                     <span>{country.name.common}</span>
                     <span>{Object.values(country.languages).join(", ")}</span>
                     <span>{country.cca3}</span>
-                    <span onClick={choseBorderCountry}>
+                    <ul onClick={choseBorderCountry}>Border countries
                         {
                             bordersCountries.map((item, index) =>
-                                <span key={index} id={index}>{item.name.common}</span>)
+                                <li key={index} id={index}>{item.name.common}</li>)
                         }
-                    </span>
-                    <button onClick={addToFavorite}>add to favorite</button>
+                    </ul>
+                    {
+                        favoriteCountriesName.includes(country.name.common)
+                            ? <button onClick={()=>deleteFromFavorites(country.name.common)}>delete from favorites</button>
+                            : <button onClick={addToFavorite}>add to favorites</button>
+                    }
                 </>
                 : 'Please, enter country name'
             }
         </div>
     )
-}
+})

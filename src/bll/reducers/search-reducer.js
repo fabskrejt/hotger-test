@@ -15,10 +15,17 @@ const slice = createSlice({
             return void (state.countries = [...action.payload])
         },
         setFavoriteCountries: (state, action) => {
-            return void (state.favoriteCountries = [...action.payload])
+            return void (state.favoriteCountries = action.payload)
         },
         setBordersCountries: (state, action) => {
             return void (state.bordersCountries = [...action.payload])
+        },
+        addToFavoriteCountries: (state, action) => {
+            return void (state.favoriteCountries = [...state.favoriteCountries, action.payload])
+        },
+        deleteFromFavoriteCountries: (state, action) => {
+            return void (state.favoriteCountries = state.favoriteCountries.filter(
+                i => i.name.common !== action.payload))
         },
         setInitialized: (state, action) => {
             return void (state.initialized = true)
@@ -27,7 +34,11 @@ const slice = createSlice({
 })
 
 export const searchReducer = slice.reducer
-export const {setCountries, setFavoriteCountries, setBordersCountries, setInitialized} = slice.actions
+export const {
+    setCountries, setFavoriteCountries,
+    setBordersCountries, setInitialized,
+    deleteFromFavoriteCountries, addToFavoriteCountries
+} = slice.actions
 
 //thunks
 export const setCountriesTC = (name) => (dispatch) => {

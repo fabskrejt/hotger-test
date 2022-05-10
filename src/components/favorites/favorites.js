@@ -1,25 +1,21 @@
 import style from "./favorites.module.css"
-import {useDispatch, useSelector} from "react-redux";
-import {setFavoriteCountries} from "../../bll/reducers/search-reducer";
+import {withDeleteFromFavorites} from "../../common/hoc/deleteFromFavorites";
 
-export const Favorites = () => {
-
-    const dispatch = useDispatch()
-    const favoriteCountries = useSelector((state) => state.searchReducer.favoriteCountries)
-
-
-    const removeFromLocalStorage = (country) => {
-        const filteredFavoriteCountries = favoriteCountries.filter(i => i !== country)
-        dispatch(setFavoriteCountries(filteredFavoriteCountries))
-    }
+export const Favorites = withDeleteFromFavorites(({deleteFromFavorites, favoriteCountries}) => {
 
     return (
         <div className={style.favorites}>
-            {favoriteCountries.map(i =>
-                <div key={i.name.common}>
-                    <span>{i.name.common}</span>
-                    <button onClick={() => removeFromLocalStorage(i)}>delete</button>
-                </div>)}
+            <ol>
+                {
+                    favoriteCountries.map(i =>
+                        <li key={i.name.common}>
+                            <span>{i.name.common}</span>
+                            <button onClick={() => deleteFromFavorites(i.name.common)}>
+                                delete
+                            </button>
+                        </li>)
+                }
+            </ol>
         </div>
     )
-}
+})
