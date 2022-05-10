@@ -7,6 +7,7 @@ const slice = createSlice({
     initialState: {
         countries: [],
         favoriteCountries: [],
+        bordersCountries: [],
         initialized: false
     },
     reducers: {
@@ -16,6 +17,9 @@ const slice = createSlice({
         setFavoriteCountries: (state, action) => {
             return void (state.favoriteCountries = [...action.payload])
         },
+        setBordersCountries: (state, action) => {
+            return void (state.bordersCountries = [...action.payload])
+        },
         setInitialized: (state, action) => {
             return void (state.initialized = true)
         }
@@ -23,7 +27,7 @@ const slice = createSlice({
 })
 
 export const searchReducer = slice.reducer
-export const {setCountries, setFavoriteCountries, setInitialized} = slice.actions
+export const {setCountries, setFavoriteCountries, setBordersCountries, setInitialized} = slice.actions
 
 //thunks
 export const setCountriesTC = (name) => (dispatch) => {
@@ -35,12 +39,10 @@ export const setCountriesTC = (name) => (dispatch) => {
         )
 }
 export const getCountriesByAlpha3NameTC = (alpha3NamesArr) => (dispatch) => {
-
     searchAPI.getCountriesByAlpha3Name(alpha3NamesArr)
         .then(
             res => {
-                dispatch(getCountriesByAlpha3NameTC)
-
+                dispatch(setBordersCountries(res.data))
             }
         )
 }
