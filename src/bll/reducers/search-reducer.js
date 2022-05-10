@@ -34,3 +34,13 @@ export const setCountriesTC = (name) => (dispatch) => {
             }
         )
 }
+export const getCountriesByAlpha3NameTC = (alpha3NamesArr) => (dispatch) => {
+
+    searchAPI.getCountriesByAlpha3Name(alpha3NamesArr)
+        .then(
+            res => {
+                dispatch(getCountriesByAlpha3NameTC)
+
+            }
+        )
+}

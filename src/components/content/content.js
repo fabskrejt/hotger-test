@@ -1,10 +1,12 @@
 import {CountryInfo} from "./country-info/country-info";
 import {SearchResults} from "./search-results/search-results";
 import style from "./content.module.css"
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
+import {getCountriesByAlpha3NameTC} from "../../bll/reducers/search-reducer";
 
 export const Content = () => {
+    const dispatch = useDispatch()
     const countries = useSelector(state => state.searchReducer.countries)
     const [country, setCountry] = useState("")
     console.log('Content')
@@ -15,6 +17,12 @@ export const Content = () => {
             country && setCountry("")
         }
     }, [countries])
+
+    useEffect(() => {
+        country.borders &&
+        dispatch(getCountriesByAlpha3NameTC(country.borders))
+    }, [country])
+
 
     return (
         <div className={style.content}>
