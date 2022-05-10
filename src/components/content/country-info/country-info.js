@@ -36,6 +36,7 @@ export const CountryInfo = ({country}) => {
                 ? <>
                     <img src={country.flags.png} alt={"country flag"}/>
                     <span>{country.name.common}</span>
+                    <span>{Object.values(country.languages).join(", ")}.</span>
                     <span>{country.cca3}</span>
                     <button onClick={addToFavorite}>add to favorite</button>
                 </>
