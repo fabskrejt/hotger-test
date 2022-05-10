@@ -16,18 +16,17 @@ const slice = createSlice({
         setFavoriteCountries: (state, action) => {
             return void (state.favoriteCountries = [...action.payload])
         },
-        setInitialized: (state, action)=>{
+        setInitialized: (state, action) => {
             return void (state.initialized = true)
         }
     }
 })
 
 export const searchReducer = slice.reducer
-export const {setCountries, setFavoriteCountries,setInitialized} = slice.actions
+export const {setCountries, setFavoriteCountries, setInitialized} = slice.actions
 
 //thunks
 export const setCountriesTC = (name) => (dispatch) => {
-    debugger
     searchAPI.getCountries(name)
         .then(
             res => {

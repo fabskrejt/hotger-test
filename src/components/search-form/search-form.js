@@ -6,7 +6,6 @@ export const SearchForm = () => {
     const dispatch = useDispatch()
     const submit = (e) => {
         e.preventDefault()
-        debugger
         dispatch(setCountriesTC(e.currentTarget[0].value))
         e.currentTarget.reset()
     }
