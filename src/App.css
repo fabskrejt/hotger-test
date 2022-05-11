@@ -2,7 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-
+padding-top: 20px;
   grid-template-areas:
           'header header header favorites'
           'main main main favorites'

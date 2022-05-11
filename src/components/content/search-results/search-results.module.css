@@ -6,8 +6,12 @@ background-color: cornflowerblue;
     border-radius: 10px;
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
+    flex-wrap: wrap ;
     background-color: gray;
     margin-bottom: 10px;
-    height: 30px;
+    min-height: 30px;
+}
+
+.country span{
+    width: 25%;
 }

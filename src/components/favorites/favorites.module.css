@@ -1,6 +1,26 @@
-.favorites{
+.favorites {
     background-color: gray;
     max-height: 70vh;
     grid-area: favorites;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    align-items: center;
+    position: relative;
+}
 
+.favorites ol {
+    margin: 0;
+    padding: 0;
+}
+
+.favorites li {
+    display: flex;
+    justify-content: space-between;
+    width:150px;
+    padding: 5px 0;
+}
+
+.favorites button {
+    margin-left: 10px;
 }

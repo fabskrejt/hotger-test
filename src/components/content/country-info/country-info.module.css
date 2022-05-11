@@ -6,13 +6,22 @@
     flex-wrap: wrap;
     background-color: gray;
     margin-bottom: 10px;
-    height: 30vh;
+    min-height: 30vh;
+    align-items: center;
 }
 
 .countryInfo img {
-
+    height:120px;
+    width: 200px;
 }
 .countryInfo span{
     width: 100px;
-    text-align: center;
+}
+
+.countryInfo button {
+
+width: 100%;
+    height: 120px;
+    margin: 0;
+    padding: 0;
 }
