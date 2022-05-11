@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/hotger-test/static/css/main.352c2da9.css",
+    "main.js": "/hotger-test/static/js/main.46de4dae.js",
+    "static/js/787.6902223f.chunk.js": "/hotger-test/static/js/787.6902223f.chunk.js",
+    "index.html": "/hotger-test/index.html",
+    "main.352c2da9.css.map": "/hotger-test/static/css/main.352c2da9.css.map",
+    "main.46de4dae.js.map": "/hotger-test/static/js/main.46de4dae.js.map",
+    "787.6902223f.chunk.js.map": "/hotger-test/static/js/787.6902223f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.352c2da9.css",
+    "static/js/main.46de4dae.js"
+  ]
+}
