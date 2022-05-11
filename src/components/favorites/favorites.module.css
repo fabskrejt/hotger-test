@@ -15,12 +15,14 @@
 }
 
 .favorites li {
-    display: flex;
-    justify-content: space-between;
+    margin: auto;
     width:150px;
     padding: 5px 0;
 }
-
+.favoritesElement{
+    display: flex;
+    justify-content: space-between;
+}
 .favorites button {
     margin-left: 10px;
 }
