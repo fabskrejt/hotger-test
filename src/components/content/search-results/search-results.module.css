@@ -1,5 +1,7 @@
 .searchResults{
-background-color: cornflowerblue;
+    background-color: cornflowerblue;
+    overflow-y: scroll;
+    height: 30vh;
 }
 .country{
     background-color: wheat;

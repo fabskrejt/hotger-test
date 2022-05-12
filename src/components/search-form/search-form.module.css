@@ -1,3 +1,4 @@
 .searchForm{
 grid-area: header;
+    max-height: 40px;
 }

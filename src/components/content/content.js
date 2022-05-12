@@ -9,7 +9,7 @@ export const Content = () => {
     const dispatch = useDispatch()
     const countries = useSelector(state => state.searchReducer.countries)
     const [country, setCountry] = useState("")
-    console.log('Content')
+
     useEffect(() => {
         if (countries.length === 1) {
             setCountry(countries[0])

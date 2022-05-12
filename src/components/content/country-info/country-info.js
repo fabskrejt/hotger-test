@@ -9,7 +9,7 @@ import {
 } from "../../../bll/reducers/search-reducer";
 import {withDeleteFromFavorites} from "../../../common/hoc/deleteFromFavorites";
 
-export const CountryInfo = withDeleteFromFavorites(({country,deleteFromFavorites,favoriteCountries}) => {
+export const CountryInfo = withDeleteFromFavorites(({country, deleteFromFavorites, favoriteCountries}) => {
     console.log('render')
     const dispatch = useDispatch()
     const initialized = useSelector((state) => state.searchReducer.initialized)
@@ -48,18 +48,31 @@ export const CountryInfo = withDeleteFromFavorites(({country,deleteFromFavorites
             {country
                 ? <>
                     <img src={country.flags.png} alt={"country flag"}/>
-                    <span>{country.name.common}</span>
-                    <span>{Object.values(country.languages).join(", ")}</span>
-                    <span>{country.cca3}</span>
-                    <ul onClick={choseBorderCountry}>Border countries
-                        {
-                            bordersCountries.map((item, index) =>
-                                <li key={index} id={index}>{item.name.common}</li>)
-                        }
-                    </ul>
+                    <div>
+                        <h5>Country name</h5>
+                        <span>{country.name.common}</span>
+                    </div>
+                    <div>
+                        <h5>Languages</h5>
+                        <span>{Object.values(country.languages).join(", ")}</span>
+                    </div>
+                    <div>
+                        <h5>Code</h5>
+                        <span>{country.cca3}</span>
+                    </div>
+                    <div>
+                        <h5>Border countries</h5>
+                        <ul onClick={choseBorderCountry}>
+                            {
+                                bordersCountries.map((item, index) =>
+                                    <li key={index} id={index}>{item.name.common}</li>)
+                            }
+                        </ul>
+                    </div>
                     {
                         favoriteCountriesName.includes(country.name.common)
-                            ? <button onClick={()=>deleteFromFavorites(country.name.common)}>delete from favorites</button>
+                            ? <button onClick={() => deleteFromFavorites(country.name.common)}>delete from
+                                favorites</button>
                             : <button onClick={addToFavorite}>add to favorites</button>
                     }
                 </>
@@ -68,3 +81,4 @@ export const CountryInfo = withDeleteFromFavorites(({country,deleteFromFavorites
         </div>
     )
 })
+
