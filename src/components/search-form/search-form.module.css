@@ -6,9 +6,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 7px 5px 5px gray;
 }
 
-.searchFormContent > form input, button{
+.searchFormContent > form input, button {
     border-radius: 5px;
     border: none;
     height: 30px;
@@ -18,4 +19,8 @@ input {
     min-width: 200px;
     margin: 0 10px;
     padding: 0 5px;
+}
+
+.searchFormContent button:hover {
+    background-color: gray;
 }

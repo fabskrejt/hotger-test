@@ -82,7 +82,7 @@ export const CountryInfo = withDeleteFromFavorites(({country, deleteFromFavorite
                             : <button onClick={addToFavorite}>add to favorites</button>
                     }
                 </>
-                : 'Please, enter country name'
+                : 'No data, search countries and chose from list'
             }
         </div>
     )

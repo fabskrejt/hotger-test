@@ -1,21 +1,33 @@
-.searchResults{
-    background-color: cornflowerblue;
+.searchResults {
+    padding-top: 10px;
+    background-color: lightgray;
     overflow-y: scroll;
     height: 30vh;
     margin-top: 20px;
     border-radius: 10px;
+    box-shadow: 7px 5px 5px gray;
 }
-.country{
-    background-color: wheat;
+
+.country {
     border-radius: 10px;
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap ;
-    background-color: rebeccapurple;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: gray;
     margin-bottom: 10px;
     min-height: 30px;
 }
 
-.country span{
+.country span {
     width: 25%;
+}
+
+.country button {
+    height: 20px;
+}
+
+.country button:hover {
+    background-color: lightgray;
+
 }
