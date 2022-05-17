@@ -10,16 +10,16 @@ export const SearchForm = () => {
 
     const onChangeSearchInputValue = (e) => {
         const RegExpression = /^[a-zA-Z\s]*$/;
-        if( RegExpression.test(e.currentTarget.value)){
+        if (RegExpression.test(e.currentTarget.value)) {
             setSearchInputValue(e.currentTarget.value)
-            validationError && setValidationError(!validationError)
-        } else{
+            validationError && setValidationError(false)
+        } else {
             setValidationError(true)
         }
     }
     const submit = (e) => {
         e.preventDefault()
-        dispatch(setCountriesTC(searchInputValue))
+        dispatch(setCountriesTC(searchInputValue.trim()))
         setSearchInputValue("")
     }
     return (
@@ -28,8 +28,8 @@ export const SearchForm = () => {
                 <input type={'text'} placeholder={'type country name'}
                        value={searchInputValue} onChange={onChangeSearchInputValue}
                 />
-                {validationError&& <span>Please use only letters and spaces </span>}
                 <button type={"submit"}>search</button>
+                {validationError && <div>use only English letters and spaces</div>}
             </form>
         </div>
     )
