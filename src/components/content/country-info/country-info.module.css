@@ -9,6 +9,7 @@
     min-height: 30vh;
     align-items: start;
     padding: 20px;
+    position: relative;
 }
 
 .countryInfo img {

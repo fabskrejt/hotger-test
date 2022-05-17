@@ -1,0 +1,45 @@
+.preloader {
+    height: 120px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bar {
+    animation: loader 1.2s linear infinite;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+}
+
+.firstPoint {
+    animation-delay: 0.2s;
+}
+
+.secondPoint {
+    animation-delay: 0.3s;
+}
+
+.thirdPoint {
+    animation-delay: 0.4s;
+}
+.fourthBar{
+    animation-delay: 0.5s;
+}
+
+@keyframes loader {
+    0% {
+        transform: scaleY(0.1);
+        background: green;
+    }
+    50% {
+        transform: scaleY(1);
+        background: purple;
+    }
+    100% {
+        transform: scaleY(0.1);
+        background: yellow;
+    }
+}

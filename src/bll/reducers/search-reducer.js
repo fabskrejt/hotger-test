@@ -8,7 +8,8 @@ const slice = createSlice({
         countries: [],
         favoriteCountries: [],
         bordersCountries: [],
-        initialized: false
+        initialized: false,
+        dataIsFetching: false,
     },
     reducers: {
         setCountries: (state, action) => {
@@ -29,6 +30,9 @@ const slice = createSlice({
         },
         setInitialized: (state, action) => {
             return void (state.initialized = true)
+        },
+        setDataIsFetching: (state, action) => {
+            return void (state.dataIsFetching = action.payload)
         }
     }
 })
@@ -37,23 +41,30 @@ export const searchReducer = slice.reducer
 export const {
     setCountries, setFavoriteCountries,
     setBordersCountries, setInitialized,
-    deleteFromFavoriteCountries, addToFavoriteCountries
+    deleteFromFavoriteCountries, addToFavoriteCountries,
+    setDataIsFetching
 } = slice.actions
 
 //thunks
-export const setCountriesTC = (name) => (dispatch) => {
-    searchAPI.getCountries(name)
-        .then(
-            res => {
-                dispatch(setCountries(res.data))
-            }
-        )
+export const setCountriesTC = (name) => async (dispatch) => {
+    dispatch(setDataIsFetching(true))
+    try {
+        const response = await searchAPI.getCountries(name)
+        dispatch(setCountries(response.data))
+    } catch (error) {
+        console.log(`ddd ${error} ddd`)
+    } finally {
+        dispatch(setDataIsFetching(false))
+    }
 }
-export const getCountriesByAlpha3NameTC = (alpha3NamesArr) => (dispatch) => {
-    searchAPI.getCountriesByAlpha3Name(alpha3NamesArr)
-        .then(
-            res => {
-                dispatch(setBordersCountries(res.data))
-            }
-        )
+export const getCountriesByAlpha3NameTC = (alpha3NamesArr) => async (dispatch) => {
+    dispatch(setDataIsFetching(true))
+    try {
+        const response = await searchAPI.getCountriesByAlpha3Name(alpha3NamesArr)
+        dispatch(setBordersCountries(response.data))
+    } catch (error) {
+        console.log(`ddd ${error} ddd`)
+    } finally {
+        dispatch(setDataIsFetching(false))
+    }
 }

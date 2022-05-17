@@ -9,8 +9,8 @@ export const SearchForm = () => {
     const [validationError, setValidationError] = useState(false)
 
     const onChangeSearchInputValue = (e) => {
-        const RegExpression = /^[a-zA-Z\s]*$/;
-        if (RegExpression.test(e.currentTarget.value)) {
+        const regExp = /^[a-zA-Z\s]*$/;
+        if (regExp.test(e.currentTarget.value)) {
             setSearchInputValue(e.currentTarget.value)
             validationError && setValidationError(false)
         } else {

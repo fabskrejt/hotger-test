@@ -8,6 +8,8 @@ import {
     setInitialized
 } from "../../../bll/reducers/search-reducer";
 import {withDeleteFromFavorites} from "../../../common/hoc/deleteFromFavorites";
+import {Preloader} from "../../../common/components/preloader/preloader";
+import {retry} from "@reduxjs/toolkit/query";
 
 export const CountryInfo = withDeleteFromFavorites(({country, deleteFromFavorites, favoriteCountries}) => {
     console.log('render')
@@ -15,6 +17,8 @@ export const CountryInfo = withDeleteFromFavorites(({country, deleteFromFavorite
     const initialized = useSelector((state) => state.searchReducer.initialized)
     const bordersCountries = useSelector((state) => state.searchReducer.bordersCountries)
     const favoriteCountriesName = favoriteCountries.map(i => i.name.common)
+
+    const dataIsFetching = useSelector(state => state.searchReducer.dataIsFetching)
 
     //Get favorite countries from local storage and set it to state
     useEffect(() => {
@@ -42,9 +46,10 @@ export const CountryInfo = withDeleteFromFavorites(({country, deleteFromFavorite
         dispatch(setCountries([bordersCountries[e.target.id]]))
     }
 
-
+    if(dataIsFetching) return  <div className={style.countryInfo}><Preloader/></div>
     return initialized && (
         <div className={style.countryInfo}>
+           {/* {dataIsFetching && <Preloader/>}*/}
             {country
                 ? <>
                     <img src={country.flags.png} alt={"country flag"}/>
