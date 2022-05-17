@@ -3,7 +3,7 @@
     min-width: 250px;
     background-color: lightgray;
     position: absolute;
-    bottom: 20px;
+    bottom: -50px;
     left: calc(50% - 125px);
     border-radius: 5px;
     padding: 0 10px;

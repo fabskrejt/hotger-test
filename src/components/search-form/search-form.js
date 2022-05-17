@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
 
 export const SearchForm = () => {
-    console.log(' SearchForm')
     const dispatch = useDispatch()
     const [searchInputValue, setSearchInputValue] = useState("")
     const [validationError, setValidationError] = useState(false)

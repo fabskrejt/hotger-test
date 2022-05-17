@@ -7,7 +7,6 @@ import {Modal} from "./common/components/modal/modal";
 
 function App() {
     const fetchingError = useSelector(state => state.searchReducer.fetchingError)
-
     return (
         <div className="App">
             {fetchingError &&

@@ -9,8 +9,8 @@ export const Favorites = withDeleteFromFavorites(({deleteFromFavorites, favorite
             <ol>
                 {
                     favoriteCountries.length !== 0 ?
-                        favoriteCountries.map(i => <div className={style.favoritesElement}>
-                                <li key={i.name.common}>
+                        favoriteCountries.map(i => <div key={i.name.common} className={style.favoritesElement}>
+                                <li>
                                     <span>{i.name.common}</span>
                                 </li>
                                 <button onClick={() => deleteFromFavorites(i.name.common)}>
