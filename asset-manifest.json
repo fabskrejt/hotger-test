@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/hotger-test/static/css/main.bfe50194.css",
-    "main.js": "/hotger-test/static/js/main.2c25c6fb.js",
+    "main.css": "/hotger-test/static/css/main.d80ef1bf.css",
+    "main.js": "/hotger-test/static/js/main.46e12406.js",
     "static/js/787.6902223f.chunk.js": "/hotger-test/static/js/787.6902223f.chunk.js",
     "index.html": "/hotger-test/index.html",
-    "main.bfe50194.css.map": "/hotger-test/static/css/main.bfe50194.css.map",
-    "main.2c25c6fb.js.map": "/hotger-test/static/js/main.2c25c6fb.js.map",
+    "main.d80ef1bf.css.map": "/hotger-test/static/css/main.d80ef1bf.css.map",
+    "main.46e12406.js.map": "/hotger-test/static/js/main.46e12406.js.map",
     "787.6902223f.chunk.js.map": "/hotger-test/static/js/787.6902223f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bfe50194.css",
-    "static/js/main.2c25c6fb.js"
+    "static/css/main.d80ef1bf.css",
+    "static/js/main.46e12406.js"
   ]
 }
