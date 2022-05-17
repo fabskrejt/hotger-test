@@ -16,15 +16,18 @@
 
 .favorites li {
     margin: auto;
-    width:150px;
+    width: 150px;
     padding: 5px 0;
+    list-style-position: inside;
 }
-.favoritesElement{
+
+.favoritesElement {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .favorites button {
-   height: 20px;
+    height: 20px;
     width: 30px;
 }
