@@ -1,4 +1,21 @@
-.searchForm{
-grid-area: header;
-    max-height: 40px;
+.searchForm {
+    grid-area: header;
+    border-radius: 10px;
+    background-color: cornflowerblue;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchFormContent > form input, button{
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+}
+
+input {
+    min-width: 200px;
+    margin: 0 10px;
+    padding: 0 5px;
 }

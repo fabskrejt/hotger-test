@@ -1,12 +1,13 @@
 import style from './search-form.module.css'
-import {setCountriesTC} from "../../bll/reducers/search-reducer";
-import {useDispatch} from "react-redux";
+import {setCountriesTC} from "../../bll/reducers/countries-reducer";
+import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
 
 export const SearchForm = () => {
     const dispatch = useDispatch()
     const [searchInputValue, setSearchInputValue] = useState("")
     const [validationError, setValidationError] = useState(false)
+    const dataIsFetching = useSelector(state=>state.searchReducer.dataIsFetching)
 
     const onChangeSearchInputValue = (e) => {
         const regExp = /^[a-zA-Z\s]*$/;
@@ -24,13 +25,15 @@ export const SearchForm = () => {
     }
     return (
         <div className={style.searchForm}>
+            <div className={style.searchFormContent}>
             <form onSubmit={submit}>
                 <input type={'text'} placeholder={'type country name'}
                        value={searchInputValue} onChange={onChangeSearchInputValue}
                 />
-                <button type={"submit"}>search</button>
-                {validationError && <div>use only English letters and spaces</div>}
+                <button type={"submit"} disabled={dataIsFetching}>search</button>
+                {validationError && <div>use only english letters and spaces</div>}
             </form>
+            </div>
         </div>
     )
 }

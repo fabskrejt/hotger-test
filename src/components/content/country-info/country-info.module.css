@@ -1,11 +1,9 @@
 .countryInfo {
-    background-color: wheat;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    background-color: gray;
-    margin-bottom: 10px;
+    background-color: wheat;
     min-height: 30vh;
     align-items: start;
     padding: 20px;
@@ -21,8 +19,13 @@
     width: 100px;
 }
 
+.borderCountries li {
+    cursor: pointer;
+}
+
 .countryInfo button {
     width: 100%;
+    box-sizing: border-box;
     height: 80px;
     margin: 0;
     padding: 0;

@@ -1,12 +1,11 @@
 .favorites {
     background-color: gray;
-    max-height: 70vh;
     grid-area: favorites;
     display: flex;
     flex-direction: column;
-    min-width: 200px;
     align-items: center;
     position: relative;
+    border-radius: 10px;
 }
 
 .favorites ol {

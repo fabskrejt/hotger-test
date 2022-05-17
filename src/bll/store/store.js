@@ -1,12 +1,12 @@
 import {combineReducers} from "redux";
-import {searchReducer} from "../reducers/search-reducer";
+import {countriesReducer} from "../reducers/countries-reducer";
 import {configureStore} from "@reduxjs/toolkit";
 import thunkMiddleware from "redux-thunk";
 
 
 const rootReducer = combineReducers(
     {
-        searchReducer:searchReducer
+        searchReducer:countriesReducer
     }
 )
 

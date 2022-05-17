@@ -1,4 +1,4 @@
-import {deleteFromFavoriteCountries} from "../../bll/reducers/search-reducer";
+import {deleteFromFavoriteCountries} from "../../bll/reducers/countries-reducer";
 import {useDispatch, useSelector} from "react-redux";
 
 export const withDeleteFromFavorites = (Component) => {

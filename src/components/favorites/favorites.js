@@ -6,7 +6,7 @@ export const Favorites = withDeleteFromFavorites(({deleteFromFavorites, favorite
     return (
         <div className={style.favorites}>
             <h3>My favorites</h3>
-            <ol start={1}>
+            <ol>
                 {
                     favoriteCountries.length !== 0 ?
                         favoriteCountries.map(i => <div className={style.favoritesElement}>

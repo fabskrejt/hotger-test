@@ -6,10 +6,9 @@ import {
     setCountries,
     setFavoriteCountries,
     setInitialized
-} from "../../../bll/reducers/search-reducer";
+} from "../../../bll/reducers/countries-reducer";
 import {withDeleteFromFavorites} from "../../../common/hoc/deleteFromFavorites";
 import {Preloader} from "../../../common/components/preloader/preloader";
-import {retry} from "@reduxjs/toolkit/query";
 
 export const CountryInfo = withDeleteFromFavorites(({country, deleteFromFavorites, favoriteCountries}) => {
     console.log('render')
@@ -46,10 +45,12 @@ export const CountryInfo = withDeleteFromFavorites(({country, deleteFromFavorite
         dispatch(setCountries([bordersCountries[e.target.id]]))
     }
 
-    if(dataIsFetching) return  <div className={style.countryInfo}><Preloader/></div>
+    if (dataIsFetching) {
+        return <div className={style.countryInfo}><Preloader/></div>
+    }
+
     return initialized && (
-        <div className={style.countryInfo}>
-           {/* {dataIsFetching && <Preloader/>}*/}
+            <div className={style.countryInfo}>
             {country
                 ? <>
                     <img src={country.flags.png} alt={"country flag"}/>
@@ -67,7 +68,7 @@ export const CountryInfo = withDeleteFromFavorites(({country, deleteFromFavorite
                     </div>
                     <div>
                         <h5>Border countries</h5>
-                        <ul onClick={choseBorderCountry}>
+                        <ul className={style.borderCountries} onClick={choseBorderCountry}>
                             {
                                 bordersCountries.map((item, index) =>
                                     <li key={index} id={index}>{item.name.common}</li>)

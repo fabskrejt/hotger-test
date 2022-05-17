@@ -3,14 +3,16 @@ import {SearchForm} from "./components/search-form/search-form";
 import {Content} from "./components/content/content";
 import {Favorites} from "./components/favorites/favorites";
 import {useSelector} from "react-redux";
-import {Preloader} from "./common/components/preloader/preloader";
+import {Modal} from "./common/components/modal/modal";
 
 function App() {
-    const dataIsFetching = useSelector(state => state.searchReducer.dataIsFetching)
-    //  if(dataIsFetching) return <Preloader/>
+    const fetchingError = useSelector(state => state.searchReducer.fetchingError)
+
     return (
         <div className="App">
-   {/*         {dataIsFetching && <Preloader/>}*/}
+            {fetchingError &&
+            <Modal fetchingError={fetchingError}/>
+            }
             <SearchForm/>
             <Content/>
             <Favorites/>

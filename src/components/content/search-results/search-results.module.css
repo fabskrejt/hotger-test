@@ -2,6 +2,8 @@
     background-color: cornflowerblue;
     overflow-y: scroll;
     height: 30vh;
+    margin-top: 20px;
+    border-radius: 10px;
 }
 .country{
     background-color: wheat;
@@ -9,7 +11,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap ;
-    background-color: gray;
+    background-color: rebeccapurple;
     margin-bottom: 10px;
     min-height: 30px;
 }

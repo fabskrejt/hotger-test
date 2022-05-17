@@ -3,7 +3,7 @@ import {SearchResults} from "./search-results/search-results";
 import style from "./content.module.css"
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {getCountriesByAlpha3NameTC} from "../../bll/reducers/search-reducer";
+import {getCountriesByAlpha3NameTC} from "../../bll/reducers/countries-reducer";
 
 export const Content = () => {
     const dispatch = useDispatch()
