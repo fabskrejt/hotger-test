@@ -11,18 +11,15 @@ import {withDeleteFromFavorites} from "../../../common/hoc/deleteFromFavorites";
 import {Preloader} from "../../../common/components/preloader/preloader";
 
 export const CountryInfo = withDeleteFromFavorites(({country, deleteFromFavorites, favoriteCountries}) => {
-    console.log('render')
     const dispatch = useDispatch()
     const initialized = useSelector((state) => state.searchReducer.initialized)
     const bordersCountries = useSelector((state) => state.searchReducer.bordersCountries)
-    const favoriteCountriesName = favoriteCountries.map(i => i.name.common)
-
     const dataIsFetching = useSelector(state => state.searchReducer.dataIsFetching)
+    const favoriteCountriesName = favoriteCountries.map(i => i.name.common)
 
     //Get favorite countries from local storage and set it to state
     useEffect(() => {
         const countriesFromLocalStorage = localStorage.getItem('favoriteCountries')
-
         countriesFromLocalStorage &&
         dispatch(setFavoriteCountries(JSON.parse(countriesFromLocalStorage)))
         dispatch(setInitialized())

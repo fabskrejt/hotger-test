@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
 
 export const SearchForm = () => {
+    console.log(' SearchForm')
     const dispatch = useDispatch()
     const [searchInputValue, setSearchInputValue] = useState("")
     const [validationError, setValidationError] = useState(false)
@@ -31,7 +32,9 @@ export const SearchForm = () => {
                            value={searchInputValue} onChange={onChangeSearchInputValue}
                     />
                     <button type={"submit"} disabled={dataIsFetching}>search</button>
-                    {validationError && <div className={style.validationError}>use only english letters and spaces</div>}
+                    {validationError &&
+                    <div className={style.validationError}>use only english letters and spaces</div>
+                    }
                 </form>
             </div>
         </div>
