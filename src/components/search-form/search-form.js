@@ -7,7 +7,7 @@ export const SearchForm = () => {
     const dispatch = useDispatch()
     const [searchInputValue, setSearchInputValue] = useState("")
     const [validationError, setValidationError] = useState(false)
-    const dataIsFetching = useSelector(state=>state.searchReducer.dataIsFetching)
+    const dataIsFetching = useSelector(state => state.searchReducer.dataIsFetching)
 
     const onChangeSearchInputValue = (e) => {
         const regExp = /^[a-zA-Z\s]*$/;
@@ -26,13 +26,13 @@ export const SearchForm = () => {
     return (
         <div className={style.searchForm}>
             <div className={style.searchFormContent}>
-            <form onSubmit={submit}>
-                <input type={'text'} placeholder={'type country name'}
-                       value={searchInputValue} onChange={onChangeSearchInputValue}
-                />
-                <button type={"submit"} disabled={dataIsFetching}>search</button>
-                {validationError && <div>use only english letters and spaces</div>}
-            </form>
+                <form onSubmit={submit}>
+                    <input type={'text'} placeholder={'type country name'}
+                           value={searchInputValue} onChange={onChangeSearchInputValue}
+                    />
+                    <button type={"submit"} disabled={dataIsFetching}>search</button>
+                    {validationError && <div className={style.validationError}>use only english letters and spaces</div>}
+                </form>
             </div>
         </div>
     )
